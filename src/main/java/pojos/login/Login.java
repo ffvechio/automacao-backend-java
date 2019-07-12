@@ -1,4 +1,4 @@
-package pojos.oauth;
+package pojos.login;
 
 import lombok.Data;
 

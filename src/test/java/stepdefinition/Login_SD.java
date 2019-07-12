@@ -1,15 +1,13 @@
 package stepdefinition;
 
-import commons.APIMethods;
 import cucumber.api.java.pt.Dado;
 import cucumber.api.java.pt.Então;
-import pojos.oauth.Login;
+import pojos.login.Login;
 import report.ExtentCucumberFormatter;
 
 public class Login_SD {
 
     public Login login = new Login();
-    static APIMethods page = Hooks.api;
     private String LoginToken;
 
     @Dado("^que informo os dados de login \"([^\"]*)\" \"([^\"]*)\"$")
@@ -17,7 +15,7 @@ public class Login_SD {
         login.setEmail(email);
         login.setPassword(password);
 
-        page.buildRequest(login);
+        Hooks.api.buildRequest(login);
     }
 
     @Então("^o serviço retorna o token na respota$")
