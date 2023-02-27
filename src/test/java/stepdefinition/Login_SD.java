@@ -1,9 +1,9 @@
 package stepdefinition;
 
-import cucumber.api.java.pt.Dado;
-import cucumber.api.java.pt.Então;
+
+import io.cucumber.java.pt.Dado;
+import io.cucumber.java.pt.Então;
 import pojos.login.Login;
-import report.ExtentCucumberFormatter;
 
 public class Login_SD {
 
@@ -24,7 +24,6 @@ public class Login_SD {
 
         System.out.println("Token de login criado com sucesso:" + " " + LoginToken);
 
-        ExtentCucumberFormatter.insertInfoTextInStepReport("Token:" + " " + LoginToken);
     }
 
 }

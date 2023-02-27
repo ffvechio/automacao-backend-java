@@ -4,13 +4,12 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
-import cucumber.api.java.pt.Então;
-import cucumber.api.java.pt.Quando;
+import io.cucumber.java.pt.Então;
+import io.cucumber.java.pt.Quando;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
-import report.ExtentCucumberFormatter;
 import utils.PropertiesHelper;
 
 import java.io.UnsupportedEncodingException;
@@ -48,35 +47,30 @@ public class APIMethods {
     @Quando("^envio uma requisição GET para \"([^\"]*)\" \"([^\"]*)\"$")
     public void getRequest(String environment, String endpoint) throws Throwable {
         response = request.when().get(properties.getProperty(environment) + properties.getProperty(endpoint));
-        ExtentCucumberFormatter.insertInfoTextInStepReport("Endpoint:" + " " + properties.getProperty(environment) + properties.getProperty(endpoint));
     }
 
     //Realizar requisição POST
     @Quando("^envio uma requisição POST para \"([^\"]*)\" \"([^\"]*)\"$")
     public void postRequest(String environment, String endpoint) throws Throwable {
         response = request.when().post(properties.getProperty(environment) + properties.getProperty(endpoint));
-        ExtentCucumberFormatter.insertInfoTextInStepReport("Endpoint:" + " " + properties.getProperty(environment) + properties.getProperty(endpoint));
     }
 
     //Realizar requisição PUT
     @Quando("^envio uma requisição PUT para \"([^\"]*)\" \"([^\"]*)\"$")
     public void putRequest(String environment, String endpoint) throws Throwable {
         response = request.when().put(properties.getProperty(environment) + properties.getProperty(endpoint));
-        ExtentCucumberFormatter.insertInfoTextInStepReport("Endpoint:" + " " + properties.getProperty(environment) + properties.getProperty(endpoint));
     }
 
     //Realizar requisição PATCH
     @Quando("^envio uma requisição PATCH para \"([^\"]*)\" \"([^\"]*)\"$")
     public void patchRequest(String environment, String endpoint) throws Throwable {
         response = request.when().patch(properties.getProperty(environment) + properties.getProperty(endpoint));
-        ExtentCucumberFormatter.insertInfoTextInStepReport("Endpoint:" + " " + properties.getProperty(environment) + properties.getProperty(endpoint));
     }
 
     //Realizar requisição DELETE
     @Quando("^envio uma requisição DELETE para \"([^\"]*)\" \"([^\"]*)\"$")
     public void deleteRequest(String environment, String endpoint) throws Throwable {
         response = request.when().delete(properties.getProperty(environment) + properties.getProperty(endpoint));
-        ExtentCucumberFormatter.insertInfoTextInStepReport("Endpoint:" + " " + properties.getProperty(environment) + properties.getProperty(endpoint));
     }
 
     //########################################## ENTÃO ##########################################//
